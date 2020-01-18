@@ -54,7 +54,11 @@ public class ChartView extends View {
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                animatedValues.set(position, (int) valueAnimator.getAnimatedValue());
+                try {
+                    animatedValues.set(position, (int) valueAnimator.getAnimatedValue());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
